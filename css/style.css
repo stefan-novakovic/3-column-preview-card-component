@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+
+/* || RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* || VARIABLES */
+:root {
+  /* BOX COLORS */
+  --BRIGHT-ORANGE-COLOR: hsl(31, 77%, 52%);
+  --DARK-CYAN-COLOR: hsl(184, 100%, 22%);
+  --VERY-DARK-CYAN-COLOR: hsl(179, 100%, 13%);
+
+  /* BACKGROUND AND FONT COLORS */
+  --TRANSPARENT-WHITE-COLOR: hsla(0, 0%, 100%, 0.75);
+  --VERY-LIGHT-GRAY-COLOR: hsl(0, 0%, 95%);
+
+  /* FONTS */
+  --FF-DEFAULT: "Lexend Deca", sans-serif;
+  --FF-TITLE: "Big Shoulders Display", cursive;
+  --FS: 15px;
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+  position: absolute;
+  left: -10000px;
+}
+
+/* || GENERAL */
+html {
+  font-size: var(--FS);
+}
+
+body {
+  background-color: var(--VERY-LIGHT-GRAY-COLOR);
+}
+
+main {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 836px;
+  margin: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.box {
+  height: 456px;
+  padding: 40px 44px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.box.sedans {
+  background-color: var(--BRIGHT-ORANGE-COLOR);
+  border-radius: 8px 0 0 8px;
+}
+
+.box.suvs {
+  background-color: var(--DARK-CYAN-COLOR);
+}
+
+.box.luxury {
+  background-color: var(--VERY-DARK-CYAN-COLOR);
+  border-radius: 0 8px 8px 0;
+}
+
+.box .box__title {
+  font-family: var(--FF-TITLE);
+  font-size: 2.4rem;
+  color: var(--VERY-LIGHT-GRAY-COLOR);
+  margin: 32px 0 25px;
+  text-transform: uppercase;
+}
+
+.box .box__desc {
+  font-family: var(--FF-DEFAULT);
+  font-size: 0.9rem;
+  color: var(--TRANSPARENT-WHITE-COLOR);
+  line-height: 1.68;
+  letter-spacing: 0.05px;
+}
+
+.box .box__btn {
+  font-family: var(--FF-DEFAULT);
+  font-size: 0.9rem;
+  background-color: var(--VERY-LIGHT-GRAY-COLOR);
+  padding: 13px 29px;
+  border: none;
+  border-radius: 29px;
+  cursor: pointer;
+}
+
+.box__btn.orange-color {
+  color: var(--BRIGHT-ORANGE-COLOR);
+}
+
+.box__btn.dark-cyan-color {
+  color: var(--DARK-CYAN-COLOR);
+}
+
+.box__btn.very-dark-cyan-color {
+  color: var(--VERY-DARK-CYAN-COLOR);
+}
+
+.box__btn:hover,
+.box__btn:focus-visible {
+  background-color: transparent;
+  color: var(--VERY-LIGHT-GRAY-COLOR);
+  outline: 2px solid var(--VERY-LIGHT-GRAY-COLOR);
+  outline-offset: -2px;
+}
+
+.box__btn:active {
+  filter: brightness(90%);
+}
+
+/* || MOBILE DEVICES */
+@media screen and (max-width: 1023px) {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+
+    position: static;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  .box.box.sedans {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .box.luxury {
+    border-radius: 0 0 8px 8px;
+  }
+
+  .box .box__desc {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .box {
+    height: 100%;
+    min-height: 456px;
+  }
+  .card {
+    margin: 2rem 1.71875rem;
+  }
+}
